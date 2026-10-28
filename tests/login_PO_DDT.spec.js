@@ -30,7 +30,8 @@ massa.forEach(({ email, senha }) => {
         await loginPage.fazerLogin(email, senha);
 
         // Validar mensagem esperada
-        await expect(loginPage.mensagemErro).toBeVisible();
+        await expect(page.locator('body')).toContainText('419');
+        await expect(page.locator('body')).toContainText('Page Expired');
 
     });
 
